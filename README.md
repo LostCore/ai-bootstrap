@@ -20,6 +20,8 @@ Run the commands from the root of this repository, since `$PWD` is used to build
 
 If `~/.claude/CLAUDE.md` or `~/AGENTS.md` already exist as regular files, back them up first: `ln -sfn` replaces them without asking.
 
+The content of `AGENTS.md` was inspired by Kun Chen ([talk on YouTube](https://www.youtube.com/watch?v=iQyg-KypKAA)).
+
 ## 2. statusline-command.sh
 
 `statusline-command.sh` renders the Claude Code statusline: the first line mirrors the colored `PS1` from `~/.bashrc`, the second line shows model, context window usage, session cost and duration, and the Claude.ai 5h/7d rate limits.
