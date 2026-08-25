@@ -51,3 +51,7 @@ Open it and run the commands you actually want on this machine: the `/plugin ins
 Language server plugins (`*-lsp`) do not ship their binary, so each one has to be paired with its `npm install -g` counterpart, otherwise `/plugin` reports `Executable not found in $PATH`.
 
 See [claude-plugins-bootstrap.md](claude-plugins-bootstrap.md) for the full list and the exact order.
+
+## License
+
+Released under the [MIT License](LICENSE).
