@@ -1,6 +1,6 @@
 # ai-bootstrap
 
-Personal bootstrap for a new machine: shared agent instructions, the Claude Code statusline, and the plugin setup to replay.
+Personal bootstrap for a new machine: shared agent instructions, the Claude Code statusline, the personal skills, and the plugin setup to replay.
 
 Everything here is meant to be linked from the home directory rather than copied, so that a `git pull` in this repository immediately updates the live configuration.
 
@@ -53,6 +53,23 @@ Open it and run the commands you actually want on this machine: the `/plugin ins
 Language server plugins (`*-lsp`) do not ship their binary, so each one has to be paired with its `npm install -g` counterpart, otherwise `/plugin` reports `Executable not found in $PATH`.
 
 See [claude-plugins-bootstrap.md](claude-plugins-bootstrap.md) for the full list and the exact order.
+
+## 4. Skills
+
+`skills/` holds the personal Claude Code skills, one directory per skill, each with its own `SKILL.md`.
+
+Claude Code discovers user level skills in `~/.claude/skills/<name>/SKILL.md`, so each skill directory is linked individually instead of linking the whole `skills/` folder.
+
+That way `~/.claude/skills` can still host skills that are not meant to be versioned here, without them ending up in this repository.
+
+```bash
+mkdir -p ~/.claude/skills
+for skill in "$PWD"/skills/*/; do
+  ln -sfn "${skill%/}" ~/.claude/skills/"$(basename "$skill")"
+done
+```
+
+Run the loop again after adding a new skill to the repository, since a fresh directory needs its own symlink.
 
 ## License
 
